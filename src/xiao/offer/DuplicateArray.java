@@ -1,4 +1,14 @@
 package xiao.offer;
+
+
+/**
+ * @author XM
+ *3：数组中重复的数字
+ *思路：
+ *1.数组排序nlogn，在遍历
+ *2.hash表 遍历 n  空间n
+ *3.下标和值是否相等 n
+ */
 public class DuplicateArray {
    
     public boolean duplicate(int numbers[],int length,int [] duplication) {
