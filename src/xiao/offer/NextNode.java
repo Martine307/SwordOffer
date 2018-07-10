@@ -14,7 +14,7 @@ package xiao.offer;
  * @author XM
  *一个节点有右子树，下一个节点是右子树的最左节点
  *节点是其父节点的左子节点，下一个是其父节点
- *没有右子树、不是父节点的左子节点，找到一个节点，这个节点是其父节点的左子节点
+ *没有右子树、不是父节点的左子节点，找到一个节点，这个节点是其父节点的左子节点，那么这个节点的父节点就是
  */
 public class NextNode {
 	public TreeLinkNode getNextNode(TreeLinkNode node){
