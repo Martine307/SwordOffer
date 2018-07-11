@@ -172,10 +172,10 @@ public class TreeTraverse {
 				//res.add(arr);这样输出res是空的，，，你没添加数据，，只开辟了内存 
 
 
-				/*ArrayList里存放的是索引，，如果，直接add(path)，，相当于添加了多个重复的path对象。
-				
-				所以，，每次添加都需要 new创建新的对象。
-				*/
+			/*ArrayList里存放的是索引，，如果，直接add(path)，，相当于添加了多个重复的path对象。
+			
+			所以，，每次添加都需要 new创建新的对象。
+			*/
 				arr.clear();
 				now=next;
 				next=0;
