@@ -31,7 +31,7 @@ public class PrintArray {
 		}
 		
 		if(start<endX&&start<endY){
-			for(int i=endX-1;i>=start+1;i--){
+			for(int i=endX-1;i>=start;i--){
 				l.add(array[endY][i]);
 			}
 		}
