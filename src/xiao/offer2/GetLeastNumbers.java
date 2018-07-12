@@ -71,7 +71,7 @@ public class GetLeastNumbers {
 	}
 	
 	
-	//优先队列(默认最小堆---降序)实现最大堆--升序
+	//优先队列(默认最小堆（找最大的几个）---降序)实现最大堆（找最小的几个）--升序（排序的话）
 	
 	public ArrayList<Integer> getLeastNumbersByHeap(int arr[],int k){
 		if(arr.length ==0||arr==null||k>arr.length||k<=0)  
@@ -84,7 +84,7 @@ public class GetLeastNumbers {
 			@Override
 			public int compare(Integer o1, Integer o2) {
 				// TODO Auto-generated method stub
-				return o2.compareTo(o1);
+				return o2.compareTo(o1);//大-》小
 			}
 	    	
 	    });
@@ -101,7 +101,9 @@ public class GetLeastNumbers {
 	        }
 	        for (Integer integer : maxHeap) {
 	        	list.add(integer);
+	        	System.out.println(integer);
 	        }
+	        
 	        return list; 
 	    
 	    
@@ -109,7 +111,7 @@ public class GetLeastNumbers {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int a[] = { 49, 33,38, 65, 97, 76, 13, 27, 49 };
-		new GetLeastNumbers().getLeastNumbers(a, 3);
+		new GetLeastNumbers().getLeastNumbersByHeap(a, 3);
 	}
 
 }
