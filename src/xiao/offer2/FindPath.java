@@ -35,10 +35,12 @@ public class FindPath {
 				res.add(al);
 			}
 		}else{
+			System.out.println("f"+root.val);
 			stack.push(root.val);
 			findPathCore(root.left,target-root.val,stack,res);
 			findPathCore(root.right,target-root.val,stack,res);
-			stack.pop();
+			int n=stack.pop();
+			System.out.println("d"+n);
 		}
 		
 	}
