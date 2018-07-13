@@ -96,11 +96,11 @@ public class Test50 {
         List<TreeNode> temp = new LinkedList<>();
         List<TreeNode> path1 = new LinkedList<>();
         getNodePath(root, p1, path1,temp);
-        return null;
-       /* List<TreeNode> path2 = new LinkedList<>();
+        
+        List<TreeNode> path2 = new LinkedList<>();
         getNodePath(root, p2, path2,temp);
        
-        return getLastCommonNode(path1, path2);*/
+        return getLastCommonNode(path1, path2);
     }
 
     public static void main(String[] args) {
