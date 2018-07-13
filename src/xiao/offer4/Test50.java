@@ -34,28 +34,29 @@ public class Test50 {
      * @param target 目标结点
      * @param path   从根结点到目标结点的路径
      */
-    public static void getNodePath(TreeNode root, TreeNode target, List<TreeNode> path) {
-        if (root == null) {
+    public static void getNodePath(TreeNode root, TreeNode target, List<TreeNode> path,List<TreeNode> temp) {
+        if (root == null||root==target) {
             return;
         }
 
         // 添加当前结点
-        path.add(root);
+        temp.add(root);
 
         List<TreeNode> children = root.children;
         // 处理子结点
         for (TreeNode node : children) {
 
             if (node == target) {
-                path.add(node);
-                return;
+                path.addAll(temp);
+                break;
             } else {
-                getNodePath(node, target, path);
+                getNodePath(node, target, path,temp);
             }
         }
 
         // 现场还原
-        path.remove(path.size() - 1);
+        TreeNode t=temp.remove(temp.size() - 1);
+        System.out.println(t.val);
     }
 
     /**
@@ -92,12 +93,14 @@ public class Test50 {
         if (root == null || p1 == null || p2 == null) {
             return null;
         }
+        List<TreeNode> temp = new LinkedList<>();
         List<TreeNode> path1 = new LinkedList<>();
-        getNodePath(root, p1, path1);
-        List<TreeNode> path2 = new LinkedList<>();
-        getNodePath(root, p2, path2);
-
-        return getLastCommonNode(path1, path2);
+        getNodePath(root, p1, path1,temp);
+        return null;
+       /* List<TreeNode> path2 = new LinkedList<>();
+        getNodePath(root, p2, path2,temp);
+       
+        return getLastCommonNode(path1, path2);*/
     }
 
     public static void main(String[] args) {
@@ -144,6 +147,7 @@ public class Test50 {
         n5.children.add(n10);
 
         System.out.println(getLastCommonParent(n1, n6, n8));
+        
     }
 
     // 树退化成一个链表
