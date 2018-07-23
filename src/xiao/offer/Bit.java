@@ -24,7 +24,7 @@ public class Bit {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(getNumber1(3));
+		System.out.println(getNumber(10));
 	}
 
 }
