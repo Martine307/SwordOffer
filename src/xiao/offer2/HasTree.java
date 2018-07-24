@@ -32,6 +32,7 @@ public class HasTree {
 	}
 	
 	public boolean tree1hastree2(TreeLinkNode t1,TreeLinkNode t2){
+		//顺序一定是先判断t2在t1
 		if(t2==null) return true;
 		if(t1==null) return false;
 		if(!Equal(t1.val,t2.val)){
