@@ -1,5 +1,6 @@
 package xiao.offer2;
 
+import java.util.Stack;
 
 public class MirrorTree {
 	public void getMirror(TreeLinkNode root){
@@ -16,6 +17,23 @@ public class MirrorTree {
 		
 		 
 	}
+	
+	public void Mirror(TreeLinkNode root) {
+        if(root==null) return ;
+        Stack<TreeLinkNode> stack=new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+        	TreeLinkNode t=stack.pop();
+            
+        	TreeLinkNode temp=null;
+            temp=t.left;
+            t.left=t.right;
+            t.right=temp;
+            
+            if(t.left!=null) stack.push(t.left);
+            if(t.right!=null) stack.push(t.right);
+        }
+    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
