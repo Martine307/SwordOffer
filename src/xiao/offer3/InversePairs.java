@@ -3,46 +3,68 @@ package xiao.offer3;
 import java.util.Arrays;
 
 public class InversePairs {
-	static int count;
-	public static void mergeSort(int arr[],int low,int high){
-		int mid=(low+high)/2;
-		if(low<high){
-			mergeSort(arr,low,mid);
-			mergeSort(arr,mid+1,high);
-			merge(arr,low,mid,high);
-		}
-	}
-	public static void merge(int[] arr, int low, int mid, int high) {
-		// TODO Auto-generated method stub
-		int i=low; int j=mid+1;
-		int temp[]=new int[high-low+1];
-		int k=0;
-		while(i<=mid&&j<=high){
-			if(arr[i]>arr[j]){
-				temp[k++]=arr[j++];
-				
-				count+=mid-i+1;
-			}else{
-				temp[k++]=arr[i++];
-			}
-		}
-		
-		while(i<=mid){
-			temp[k++]=arr[i++];
-		}
-		while(j<=high){
-			temp[k++]=arr[j++];
-		}
-		
-		for(int pointer=0;pointer<temp.length;pointer++){
-			arr[low+pointer]=temp[pointer];
-		}
-		
-	}
+	
+		public int InversePairs(int [] array) {
+		        if(array==null||array.length==0)
+		        {
+		            return 0;
+		        }
+		        int[] copy = new int[array.length];
+		        /*for(int i=0;i<array.length;i++)
+		        {
+		            copy[i] = array[i];
+		        }*/
+		        int count = InversePairsCore(array,copy,0,array.length-1);//数值过大求余
+		        return count;
+		         
+		    }
+		    private int InversePairsCore(int[] array,int[] copy,int low,int high)
+		    {
+		        if(low==high)
+		        {
+		            return 0;
+		        }
+		        int mid = (low+high)>>1;
+		        int leftCount = InversePairsCore(array,copy,low,mid)%1000000007;
+		        int rightCount = InversePairsCore(array,copy,mid+1,high)%1000000007;
+		        int count = 0;
+		        int i=mid;
+		        int j=high;
+		        int locCopy = high;
+		        while(i>=low&&j>mid)
+		        {
+		            if(array[i]>array[j])
+		            {
+		                count += j-mid;
+		                copy[locCopy--] = array[i--];
+		                if(count>=1000000007)//数值过大求余
+		                {
+		                    count%=1000000007;
+		                }
+		            }
+		            else
+		            {
+		                copy[locCopy--] = array[j--];
+		            }
+		        }
+		        for(;i>=low;i--)
+		        {
+		            copy[locCopy--]=array[i];
+		        }
+		        for(;j>mid;j--)
+		        {
+		            copy[locCopy--]=array[j];
+		        }
+		        for(int s=low;s<=high;s++)
+		        {
+		            array[s] = copy[s];
+		        }
+		        return (leftCount+rightCount+count)%1000000007;
+		    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int a[] = { 7,5,6,4 };
-        mergeSort(a, 0, a.length - 1);
+		int count=new InversePairs().InversePairs(a);
         System.out.println("排序结果：" + Arrays.toString(a));
         System.out.println(count);
 	}
