@@ -69,19 +69,19 @@ public class DelDuplication {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ListNode a = new ListNode(1);
-        ListNode b = new ListNode(2);
-        ListNode c = new ListNode(3);
-        ListNode d = new ListNode(3);
-        ListNode e = new ListNode(4);
-        ListNode f = new ListNode(4);
-        ListNode g = new ListNode(5);
+        ListNode b = new ListNode(1);
+        ListNode c = new ListNode(1);
+        ListNode d = new ListNode(1);
+        ListNode e = new ListNode(1);
+        ListNode f = new ListNode(1);
+        ListNode g = new ListNode(1);
         a.next=b;
         b.next=c;
         c.next=d;
         d.next=e;
         e.next=f;
         f.next=g;
-		ListNode l=del(a);
+		ListNode l=del1(a);
 		while(l!=null){
 			System.out.print(l.val);
 			l=l.next;

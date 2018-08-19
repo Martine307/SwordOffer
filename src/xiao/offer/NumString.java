@@ -38,7 +38,9 @@ public class NumString {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		String s="+500";
+		boolean t= isNumeric(s.toCharArray());
+		System.out.println(t);
 	}
 
 }
