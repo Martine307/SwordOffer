@@ -24,11 +24,11 @@ public class HeapSort {
 		int left=index*2+1;
 		int right=index*2+2;
 		
-		if(left<array.length-1&&array[left]>array[largest]&&left<=len){
+		if(left<array.length&&array[left]>array[largest]&&left<=len){
 			largest=left;
 			
 		}
-		if(right<array.length-1&&array[right]>array[largest]&&right<=len){
+		if(right<array.length&&array[right]>array[largest]&&right<=len){
 			largest=right;
 			
 		}
