@@ -18,7 +18,7 @@ public class MaxInWindows {
 		if(arr==null||arr.length<k||k<=0) return list;
 		
 		LinkedList<Integer> queue=new LinkedList<>();
-		/*for(int i=0;i<k-1;i++){
+		for(int i=0;i<k-1;i++){
 			while(!queue.isEmpty()&&arr[i]>arr[queue.getLast()]){
 				queue.removeLast();
 			}
@@ -34,18 +34,6 @@ public class MaxInWindows {
 			}
 			
 			list.add(arr[queue.getFirst()]);
-		}*/
-		for(int i=0;i<arr.length;i++){
-			while(!queue.isEmpty()&&arr[queue.peekLast()]<=arr[i]){
-				queue.pollLast();
-			}
-			queue.addLast(i);
-			if(i-k==queue.peekFirst()){
-				queue.pollFirst();
-			}
-			if(i>=k-1){
-				list.add(queue.getFirst());
-			}
 		}
 		return list;
 	}
